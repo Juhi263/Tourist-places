@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, Routes, Route } from "react-router-dom";
-import MapComponent from "./components/MapComponent";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -62,20 +61,12 @@ function App() {
             <h3>{place.name}</h3>
             <p>{place.location}</p>
             <p>₹{place.cost}</p>
-            <p>⭐ {place.rating}</p>
+            <p>⭐{place.rating}</p>
 
-            {/* Navigate to Map Page */}
-            <button onClick={() => navigate(`/map?name=${encodeURIComponent(place.name)}`)}>
-              Show Map
-            </button>
           </div>
         ))}
       </div>
 
-      {/* Routes */}
-      <Routes>
-        <Route path="/map" element={<MapComponent />} />
-      </Routes>
     </div>
   );
 }
